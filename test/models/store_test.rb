@@ -10,6 +10,7 @@
 #  store_manager_id :integer
 #  system_id        :integer
 #  district_id      :integer          not null
+#  updated_by_id    :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

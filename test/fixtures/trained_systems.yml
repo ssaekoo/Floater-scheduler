@@ -2,11 +2,12 @@
 #
 # Table name: trained_systems
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  system_id  :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  system_id     :integer
+#  updated_by_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
