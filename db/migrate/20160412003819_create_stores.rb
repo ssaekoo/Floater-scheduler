@@ -8,7 +8,7 @@ class CreateStores < ActiveRecord::Migration
       t.integer :store_manager_id
       t.integer :system_id
       t.integer :district_id, null: false
-
+      t.integer :updated_by_id
       t.timestamps null: false
     end
 

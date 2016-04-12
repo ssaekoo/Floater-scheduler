@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :user_type_id, null: false
       t.integer :district_id
       t.integer :store_id
-
+      t.integer :updated_by_id
       t.timestamps null: false
     end
 

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160412011303) do
   create_table "districts", force: :cascade do |t|
     t.string   "name"
     t.integer  "district_manager_id", null: false
+    t.integer  "updated_by_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160412011303) do
     t.integer  "store_manager_id"
     t.integer  "system_id"
     t.integer  "district_id",      null: false
+    t.integer  "updated_by_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -40,16 +42,18 @@ ActiveRecord::Schema.define(version: 20160412011303) do
   add_index "stores", ["system_id"], name: "index_stores_on_system_id", using: :btree
 
   create_table "systems", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",          null: false
+    t.integer  "updated_by_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "trained_systems", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "system_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "updated_by_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "trained_systems", ["system_id"], name: "index_trained_systems_on_system_id", using: :btree
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160412011303) do
   create_table "user_types", force: :cascade do |t|
     t.string   "name",          null: false
     t.integer  "permission_id", null: false
+    t.integer  "updated_by_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -75,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160412011303) do
     t.integer  "user_type_id",    null: false
     t.integer  "district_id"
     t.integer  "store_id"
+    t.integer  "updated_by_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
