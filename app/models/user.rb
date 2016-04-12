@@ -24,8 +24,7 @@ class User < ActiveRecord::Base
   belongs_to :district
   belongs_to :store
 
-  has_and_belongs_to_many :trained_system
-
-
+  has_many :trained_systems
+  has_many :systems through :trained_systems
 
 end

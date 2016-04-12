@@ -9,5 +9,7 @@
 #
 
 class System < ActiveRecord::Base
-  
+  has_many :trained_systems
+  has_many :stores
+  has_many :users through :trained_systems
 end

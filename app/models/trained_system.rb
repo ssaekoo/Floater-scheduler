@@ -10,6 +10,6 @@
 #
 
 class TrainedSystem < ActiveRecord::Base
-  has_and_belongs_to_many :user
-  has_and_belongs_to_many :system
+  belongs_to :user
+  belongs_to :system
 end

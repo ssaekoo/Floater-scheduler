@@ -10,4 +10,7 @@
 #
 
 class District < ActiveRecord::Base
+  has_one :district_manager,
+    foreign_key: :district_manager_id,
+    class_name: "User"
 end

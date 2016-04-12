@@ -15,4 +15,10 @@
 #
 
 class Store < ActiveRecord::Base
+  belongs_to :store_manager,
+    foreign_key: :store_manager_id,
+    class_name: 'User'
+
+  belongs_to :system
+  belongs_to :district
 end
