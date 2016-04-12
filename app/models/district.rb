@@ -11,11 +11,13 @@
 #
 
 class District < ActiveRecord::Base
+  belongs_to :updated_by,
+    foreign_key: :updated_by_id,
+    class_name: "User"
+
   has_one :district_manager,
     foreign_key: :district_manager_id,
     class_name: "User"
 
-  belongs_to :updated_by,
-    foreign_key: :updated_by_id,
-    class_name: "User"
+  has_many :users
 end

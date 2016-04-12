@@ -11,9 +11,9 @@
 #
 
 class UserType < ActiveRecord::Base
-  has_many :users
-  
   belongs_to :updated_by,
     foreign_key: :updated_by_id,
     class_name: "User"
+
+  has_many :users
 end

@@ -21,14 +21,16 @@
 #
 
 class User < ActiveRecord::Base
-  belongs_to :user_type
+  belongs_to :user_type,
+    dependent: :destroy
   belongs_to :district
   belongs_to :store
   belongs_to :updated_by,
     foreign_key: :updated_by_id,
     class_name: "User"
 
-  has_many :trained_systems
+  has_many :trained_systems,
+    dependent: :destroy
 
   has_many :systems,
     through: :trained_systems
