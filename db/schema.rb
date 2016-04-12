@@ -63,26 +63,24 @@ ActiveRecord::Schema.define(version: 20160412011303) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",              null: false
-    t.string   "password_digest",   null: false
-    t.string   "session_token",     null: false
+    t.string   "name",            null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
     t.string   "email"
     t.string   "phone_number"
     t.date     "hire_date"
-    t.string   "address",           null: false
+    t.string   "address",         null: false
     t.decimal  "longitude"
     t.decimal  "latitude"
-    t.integer  "user_type_id",      null: false
+    t.integer  "user_type_id",    null: false
     t.integer  "district_id"
     t.integer  "store_id"
-    t.integer  "trained_system_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["district_id"], name: "index_users_on_district_id", using: :btree
   add_index "users", ["store_id"], name: "index_users_on_store_id", using: :btree
-  add_index "users", ["trained_system_id"], name: "index_users_on_trained_system_id", using: :btree
   add_index "users", ["user_type_id"], name: "index_users_on_user_type_id", using: :btree
 
 end

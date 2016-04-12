@@ -13,14 +13,12 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :user_type_id, null: false
       t.integer :district_id
       t.integer :store_id
-      t.integer :trained_system_id
 
       t.timestamps null: false
     end
 
     add_index :users, :district_id
     add_index :users, :store_id
-    add_index :users, :trained_system_id
     add_index :users, :user_type_id
   end
 end
