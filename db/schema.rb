@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20160412011303) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string   "name",             null: false
     t.string   "address",          null: false
     t.decimal  "longitude"
     t.decimal  "latitude"
@@ -33,6 +32,13 @@ ActiveRecord::Schema.define(version: 20160412011303) do
     t.integer  "system_id"
     t.integer  "district_id",      null: false
     t.integer  "updated_by_id"
+    t.string   "monday_hours"
+    t.string   "tuesday_hours"
+    t.string   "wednesday_hours"
+    t.string   "thursday_hours"
+    t.string   "friday_hours"
+    t.string   "satday_hours"
+    t.string   "sunday_hours"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

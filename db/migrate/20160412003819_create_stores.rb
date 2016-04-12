@@ -1,7 +1,6 @@
 class CreateStores < ActiveRecord::Migration
   def change
     create_table :stores do |t|
-      t.string :name, null: false
       t.string :address, null: false
       t.decimal :longitude
       t.decimal :latitude
@@ -9,6 +8,13 @@ class CreateStores < ActiveRecord::Migration
       t.integer :system_id
       t.integer :district_id, null: false
       t.integer :updated_by_id
+      t.string :monday_hours
+      t.string :tuesday_hours
+      t.string :wednesday_hours
+      t.string :thursday_hours
+      t.string :friday_hours
+      t.string :satday_hours
+      t.string :sunday_hours
       t.timestamps null: false
     end
 
