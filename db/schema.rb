@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412182539) do
+ActiveRecord::Schema.define(version: 20160413225558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,30 +19,50 @@ ActiveRecord::Schema.define(version: 20160412182539) do
   create_table "districts", force: :cascade do |t|
     t.string   "name"
     t.integer  "district_manager_id", null: false
-    t.integer  "updated_by_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
+  create_table "gifts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "guest_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "favorite_color"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "guest_id"
+    t.integer  "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "stores", force: :cascade do |t|
-    t.string   "address",               null: false
-    t.string   "store_phone_number"
-    t.string   "pharmacy_phone_number"
+    t.string   "name",             null: false
+    t.string   "address",          null: false
     t.decimal  "longitude"
     t.decimal  "latitude"
     t.integer  "store_manager_id"
     t.integer  "system_id"
-    t.integer  "district_id",           null: false
-    t.integer  "updated_by_id"
-    t.string   "monday"
-    t.string   "tuesday"
-    t.string   "wednesday"
-    t.string   "thursday"
-    t.string   "friday"
-    t.string   "saturday"
-    t.string   "sunday"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "district_id",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   add_index "stores", ["district_id"], name: "index_stores_on_district_id", using: :btree
@@ -50,18 +70,16 @@ ActiveRecord::Schema.define(version: 20160412182539) do
   add_index "stores", ["system_id"], name: "index_stores_on_system_id", using: :btree
 
   create_table "systems", force: :cascade do |t|
-    t.string   "name",          null: false
-    t.integer  "updated_by_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trained_systems", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "system_id"
-    t.integer  "updated_by_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "trained_systems", ["system_id"], name: "index_trained_systems_on_system_id", using: :btree
@@ -70,30 +88,37 @@ ActiveRecord::Schema.define(version: 20160412182539) do
   create_table "user_types", force: :cascade do |t|
     t.string   "name",          null: false
     t.integer  "permission_id", null: false
-    t.integer  "updated_by_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.string   "email"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "name",                                null: false
+    t.string   "session_token",                       null: false
     t.string   "phone_number"
     t.date     "hire_date"
-    t.string   "address",         null: false
+    t.string   "address",                             null: false
     t.decimal  "longitude"
     t.decimal  "latitude"
-    t.integer  "user_type_id",    null: false
+    t.integer  "user_type_id",                        null: false
     t.integer  "district_id"
     t.integer  "store_id"
     t.integer  "updated_by_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["district_id"], name: "index_users_on_district_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["store_id"], name: "index_users_on_store_id", using: :btree
   add_index "users", ["user_type_id"], name: "index_users_on_user_type_id", using: :btree
 

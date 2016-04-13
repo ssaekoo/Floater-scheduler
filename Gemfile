@@ -20,6 +20,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'devise', '~> 3.5', '>= 3.5.6'
 end
 
 group :development do
