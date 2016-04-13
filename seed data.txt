@@ -84,6 +84,7 @@ Sat-Sun: 9:00 am - 5:00 pm
 
 1395 Solano Ave
 Albany, CA 94706
+Store Phone:
 Pharmacy Phone: 510-524-5881
 Pharmacy Hours: Mon-Fri: 9:00 am-8:00 pm
 Sat-Sun: 9:00 am-5:00 pm
@@ -357,6 +358,7 @@ Sat-Sun: 9:00 am - 5:00 pm
 645 San Antonio Rd
 Mountain View, CA 94040
 Store Phone: 650-948 4533
+Pharmacy Phone:
 Pharmacy Hours: Mon-Fri: 9:00 am - 9:00 pm
 Sat-Sun: 9:00 am - 5:00 pm
 
@@ -425,6 +427,7 @@ Sat-Sun: 9:00 am - 5:00 pm
 
 2710 Middlefield Road
 Redwood City, CA 94063
+Store Phone:
 Pharmacy Phone: 650-474-0510
 Pharmacy Hours: Mon-Fri: 8:00 am - 7:00 pm
 Sat 8:00 am - 12:00 pm
@@ -454,12 +457,6 @@ Sat-Sun: 9:00 am - 5:00 pm
 Millbrae, CA 94030
 Store Phone: 650-652-3416
 Pharmacy Phone: 650-652-3477
-Pharmacy Hours: Mon-Fri: 9:00 am - 9:00 pm
-Sat-Sun: 9:00 am - 5:00 pm
-
-645 San Antonio Rd
-Mountain View, CA 94040
-Store Phone: 650-948 4533
 Pharmacy Hours: Mon-Fri: 9:00 am - 9:00 pm
 Sat-Sun: 9:00 am - 5:00 pm
 
@@ -516,7 +513,8 @@ Sat-Sun: 9:00 am - 5:00 pm
 San Francisco, CA 94114
 Store Phone: 415-861-7660
 Pharmacy Phone: 415-436-9032
-Pharmacy Hours:Daily 24 hours
+Pharmacy Hours: Mon-Fri: 12:00 am - 12:00 pm
+Sat-Sun: 12:00 am - 12:00 pm
 
 2350 Noriega St.
 San Francisco, CA 94122
@@ -623,12 +621,6 @@ Pharmacy Phone: 415-921-5502
 Pharmacy Hours: Mon-Fri: 9:00 am - 9:00 pm
 Sat-Sun: 9:00 am - 5:00 pm
 
-2020 Market St
-San Francisco, CA 94114
-Store Phone: 415-861-7660
-Pharmacy Phone: 415-436-9032
-Pharmacy Hours: Daily 24 hours
-
 15 Marina Blvd
 San Francisco, CA 94123
 Store Phone: 415-563-4946
@@ -729,6 +721,7 @@ Sat-Sun: 9:00 am - 5:00 pm
 
 1395 Solano Ave
 Albany, CA 94706
+Store Phone:
 Pharmacy Phone: 510-524-5881
 Pharmacy Hours: Mon-Fri: 9:00 am-8:00 pm
 Sat-Sun: 9:00 am-5:00 pm
@@ -823,12 +816,6 @@ Store Phone: 415-881-9256
 Pharmacy Phone: 415-881-9260
 Pharmacy Hours: Mon-Fri: 9:00 am - 9:00 pm
 Sat-Sun: 9:00 am - 5:00 pm
-
-1395 Solano Ave
-Albany, CA 94706
-Pharmacy Phone: 510-524-5881
-Pharmacy Hours: Mon-Fri: 9:00 am-8:00 pm
-Sat-Sun: 9:00 am-5:00 pm
 
 6688 Alhambra Ave.
 Martinez, CA 94553

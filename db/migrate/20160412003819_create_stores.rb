@@ -2,19 +2,21 @@ class CreateStores < ActiveRecord::Migration
   def change
     create_table :stores do |t|
       t.string :address, null: false
+      t.string :store_phone_number
+      t.string :pharmacy_phone_number
       t.decimal :longitude
       t.decimal :latitude
       t.integer :store_manager_id
       t.integer :system_id
       t.integer :district_id, null: false
       t.integer :updated_by_id
-      t.string :monday_hours
-      t.string :tuesday_hours
-      t.string :wednesday_hours
-      t.string :thursday_hours
-      t.string :friday_hours
-      t.string :satday_hours
-      t.string :sunday_hours
+      t.string :monday
+      t.string :tuesday
+      t.string :wednesday
+      t.string :thursday
+      t.string :friday
+      t.string :satday
+      t.string :sunday
       t.timestamps null: false
     end
 

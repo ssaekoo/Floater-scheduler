@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412011303) do
+ActiveRecord::Schema.define(version: 20160412182539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,22 +25,24 @@ ActiveRecord::Schema.define(version: 20160412011303) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string   "address",          null: false
+    t.string   "address",               null: false
+    t.string   "store_phone_number"
+    t.string   "pharmacy_phone_number"
     t.decimal  "longitude"
     t.decimal  "latitude"
     t.integer  "store_manager_id"
     t.integer  "system_id"
-    t.integer  "district_id",      null: false
+    t.integer  "district_id",           null: false
     t.integer  "updated_by_id"
-    t.string   "monday_hours"
-    t.string   "tuesday_hours"
-    t.string   "wednesday_hours"
-    t.string   "thursday_hours"
-    t.string   "friday_hours"
-    t.string   "satday_hours"
-    t.string   "sunday_hours"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "monday"
+    t.string   "tuesday"
+    t.string   "wednesday"
+    t.string   "thursday"
+    t.string   "friday"
+    t.string   "saturday"
+    t.string   "sunday"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "stores", ["district_id"], name: "index_stores_on_district_id", using: :btree
