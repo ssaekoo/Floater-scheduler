@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 20160413225558) do
     t.decimal  "longitude"
     t.decimal  "latitude"
     t.integer  "user_type_id",                        null: false
+    # total 5 types
+    # user_type_id '0' is District_Manager, '1' is Scheduler, '2' is Store_Manager, '3' is 'Staff', '4' is Floater
     t.integer  "district_id"
     t.integer  "store_id"
     t.integer  "updated_by_id"
