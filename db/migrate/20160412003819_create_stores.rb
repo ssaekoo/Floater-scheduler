@@ -15,7 +15,7 @@ class CreateStores < ActiveRecord::Migration
       t.string :wednesday
       t.string :thursday
       t.string :friday
-      t.string :satday
+      t.string :saturday
       t.string :sunday
       t.timestamps null: false
     end

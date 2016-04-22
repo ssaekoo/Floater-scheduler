@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413225558) do
+ActiveRecord::Schema.define(version: 20160422214137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,50 +19,39 @@ ActiveRecord::Schema.define(version: 20160413225558) do
   create_table "districts", force: :cascade do |t|
     t.string   "name"
     t.integer  "district_manager_id", null: false
+    t.integer  "updated_by_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
-  create_table "gifts", force: :cascade do |t|
+  create_table "schedules", force: :cascade do |t|
     t.string   "title"
-    t.string   "description"
-    t.integer  "guest_id"
+    t.text     "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "guests", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.string   "favorite_color"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  create_table "invitations", force: :cascade do |t|
-    t.integer  "guest_id"
-    t.integer  "party_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parties", force: :cascade do |t|
-    t.string   "name"
-    t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stores", force: :cascade do |t|
-    t.string   "name",             null: false
-    t.string   "address",          null: false
+    t.string   "address",               null: false
+    t.string   "store_phone_number"
+    t.string   "pharmacy_phone_number"
     t.decimal  "longitude"
     t.decimal  "latitude"
     t.integer  "store_manager_id"
     t.integer  "system_id"
-    t.integer  "district_id",      null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "district_id",           null: false
+    t.integer  "updated_by_id"
+    t.string   "monday"
+    t.string   "tuesday"
+    t.string   "wednesday"
+    t.string   "thursday"
+    t.string   "friday"
+    t.string   "saturday"
+    t.string   "sunday"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "stores", ["district_id"], name: "index_stores_on_district_id", using: :btree
@@ -70,16 +59,18 @@ ActiveRecord::Schema.define(version: 20160413225558) do
   add_index "stores", ["system_id"], name: "index_stores_on_system_id", using: :btree
 
   create_table "systems", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",          null: false
+    t.integer  "updated_by_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "trained_systems", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "system_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "updated_by_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "trained_systems", ["system_id"], name: "index_trained_systems_on_system_id", using: :btree
@@ -88,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160413225558) do
   create_table "user_types", force: :cascade do |t|
     t.string   "name",          null: false
     t.integer  "permission_id", null: false
+    t.integer  "updated_by_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -111,8 +103,6 @@ ActiveRecord::Schema.define(version: 20160413225558) do
     t.decimal  "longitude"
     t.decimal  "latitude"
     t.integer  "user_type_id",                        null: false
-    # total 5 types
-    # user_type_id '0' is District_Manager, '1' is Scheduler, '2' is Store_Manager, '3' is 'Staff', '4' is Floater
     t.integer  "district_id"
     t.integer  "store_id"
     t.integer  "updated_by_id"
