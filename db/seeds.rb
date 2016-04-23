@@ -1,3 +1,4 @@
+require 'byebug'
 UserType.create!(name: "District Manager", permission_id: "1")
 UserType.create!(name: "Scheduler", permission_id: "2")
 UserType.create!(name: "Store Manager", permission_id: "3")
@@ -108,4 +109,30 @@ User.create!(
                email: Faker::Internet.email, password: "12345678", remember_created_at: Faker::Date.forward(30),
                name: Faker::Name.name, address: "160 Spear, San Francisco, CA", user_type_id: 4, district_id: 1
               )
+end
+
+Day.create!(name: "Monday")
+Day.create!(name: "Tuesday")
+Day.create!(name: "Wednesday")
+Day.create!(name: "Thursday")
+Day.create!(name: "Friday")
+Day.create!(name: "Saturday")
+Day.create!(name: "Sunday")
+
+days = Day.all.map{|x| x.name}
+
+
+Store.where(district_id: 1).each do |my_store|
+  days.each_with_index do |day, i|
+
+    if my_store[day.downcase] == "9:00 am - 9:00 pm"
+      Shift.create!(title: "Morning", store_id: my_store.id, day_id: i + 1, start_time: "9:00 AM", end_time: "3:00 PM")
+      Shift.create!(title: "Evening", store_id: my_store.id, day_id: i + 1, start_time: "3:00 PM", end_time: "9:00 PM")
+    elsif my_store[day.downcase] == "12:00 am - 12:00 pm"
+      Shift.create!(title: "Morning", store_id: my_store.id, day_id: i + 1, start_time: "7:00 AM", end_time: "3:00 PM")
+      Shift.create!(title: "Evening", store_id: my_store.id, day_id: i + 1, start_time: "3:00 PM", end_time: "11:00 PM")
+    elsif my_store[day.downcase] == "9:00 am - 5:00 pm"
+      Shift.create!(title: "All Day", store_id: my_store.id, day_id: i + 1, start_time: "9:00 AM", end_time: "5:00 PM")
+    end
+  end
 end
